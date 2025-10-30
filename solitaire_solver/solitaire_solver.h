@@ -8,8 +8,6 @@
 
 class Board {
 private:
-    const int rows = 7;
-    const int cols = 7;
     std::vector<bool> board_state;
 
 public:
@@ -18,6 +16,31 @@ public:
     void print();
 
     std::vector<bool> get_board_state();
+
+    std::vector<int> find_neighbours(int index);
 };
+
+struct Move {
+private:
+    const int to;
+    const int over;
+    const int from;
+
+public:
+    const int get_to();
+
+    const int get_over();
+
+    const int get_from();
+};
+
+struct FindAllMoves {
+private:
+    std::vector<Move> all_moves;
+
+public:
+    std::vector<Move> get_all_moves(Board board);
+};
+
 
 #endif
